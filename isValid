@@ -1,0 +1,17 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        dict={")":"(","}":"{","]":"["}
+        a="{[("
+        lmao=[]
+        for i in range(len(s)):
+            if s[i] in a:
+                lmao.append(s[i])
+            else:
+                if lmao and dict[s[i]]==lmao[-1]:
+                    lmao.pop()
+                else:
+                    return False
+        if lmao==[]:
+            return True
+        else:
+            return False
