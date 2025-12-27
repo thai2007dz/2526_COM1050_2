@@ -1,0 +1,15 @@
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        if numRows==1:
+            return [[1]]
+        if numRows==2:
+            return [[1],[1,1]]
+        a=[[1],[1,1]]
+        c=2
+        while c!=numRows:
+            s=[1]
+            for i in range(c-1):
+                s.append(sum(a[c-1][i:i+2]))
+            a.append(s+[1])
+            c+=1
+        return a
